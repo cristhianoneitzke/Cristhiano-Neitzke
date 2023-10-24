@@ -1,6 +1,0 @@
-from Carro import Carro
-from Aluno import Aluno
-
-c1 = Carro ("Palio", 2000)
-
-c1.andar()
