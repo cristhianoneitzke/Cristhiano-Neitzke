@@ -40,3 +40,391 @@
 </body>
 
 </html>
+
+
+
+Exercicio 2
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="exercicio1">
+        <label for="Numero1">Numero 1</label>
+        <input type="text" id="Numero1">
+        <label for="Numero2">Numero2</label>
+        <input type="text" id="Numero2">
+        <button type="submit" id="Input">Input</button>
+
+
+
+    </form>
+
+    <script>
+        const calculoForm = document.getElementById('exercicio1');
+        calculoForm.addEventListener('submit', function (evento) {
+            evento.preventDefault();
+
+            const Numero1 = parseInt(document.getElementById('Numero1').value);
+            const Numero2 = parseInt(document.getElementById('Numero2').value);
+
+            if (Numero1 > Numero2) {
+                alert(`O Numero maior é: ${Numero1}`);
+            } else if (Numero2 > Numero1) {
+                alert(`O numero maior é: ${Numero2}`);
+            }
+            else {
+                alert('Numeros iguais')
+            }
+        });
+
+    </script>
+</body>
+
+</html>
+
+
+Exercicio 3   
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="exercicio3">
+        <label for="Nota">Nota</label>
+        <input type="text" id="Numero1">
+
+        <button type="submit" id="Input">Input</button>
+
+        <p id="resultado"></p>
+    </form>
+
+    <script>
+        const calculoForm = document.getElementById('exercicio3');
+        const inputNota = document.getElementById('Numero1');
+        const resultadoElement = document.getElementById('resultado');
+
+        calculoForm.addEventListener('submit', function (evento) {
+            evento.preventDefault();
+            const nota = parseFloat(inputNota.value);
+
+            if (nota < 6) {
+                resultadoElement.textContent = "Reprovado";
+            } else if (nota >= 6 && nota < 8) {
+                resultadoElement.textContent = "Aprovado";
+            } else {
+                resultadoElement.textContent = "Aprovado com louvor";
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+Exercicio 4
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Média</title>
+</head>
+
+<body>
+    <h1>Calcular Média</h1>
+    <p>Digite os números separados por vírgula para calcular a média:</p>
+    <input type="text" id="numerosInput">
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMedia() {
+            const numerosInput = document.getElementById('numerosInput').value;
+            const numeros = numerosInput.split(',').map(Number); // Converte os números de texto para números
+
+            if (numeros.length === 0) {
+                document.getElementById('resultado').textContent = 'Digite pelo menos um número.';
+                return;
+            }
+
+            const soma = numeros.reduce((acc, num) => acc + num, 0);
+            const media = soma / numeros.length;
+
+            document.getElementById('resultado').textContent = `A média é: ${media.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+Exercicio 5
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Variável</title>
+</head>
+
+<body>
+    <h1>Verificar Variável</h1>
+    <p>Digite o valor da variável:</p>
+    <input type="text" id="variavelInput">
+    <button onclick="verificarVariavel()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarVariavel() {
+            const variavel = document.getElementById('variavelInput').value;
+
+            if (variavel === 'a') {
+                document.getElementById('resultado').textContent = 'A';
+            } else if (variavel === 'b') {
+                document.getElementById('resultado').textContent = 'B';
+            } else {
+                document.getElementById('resultado').textContent = 'Rock n Roll';
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+EXercicio 6
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Soma da Matriz</title>
+</head>
+
+<body>
+    <h1>Calcular Soma da Matriz</h1>
+    <p>Digite os elementos da matriz separados por vírgula e ponto e virgula:</p>
+    <textarea id="matrizInput" rows="4" cols="50"></textarea>
+    <button onclick="calcularSomaMatriz()">Calcular Soma</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSomaMatriz() {
+            const matrizInput = document.getElementById('matrizInput').value;
+            const linhas = matrizInput.split(';');
+
+            const matriz = [];
+            for (let i = 0; i < linhas.length; i++) {
+                const elementos = linhas[i].split(',').map(Number);
+                matriz.push(elementos);
+            }
+
+            let soma = 0;
+            for (let i = 0; i < matriz.length; i++) {
+                for (let j = 0; j < matriz[i].length; j++) {
+                    soma += matriz[i][j];
+                }
+            }
+
+            document.getElementById('resultado').textContent = `A soma dos elementos da matriz é: ${soma}`;
+        }
+    </script>
+</body>
+
+</html>
+
+
+Exercicio 7 
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Fatorial</title>
+</head>
+
+<body>
+    <h1>Calcular Fatorial</h1>
+    <p>Digite um número para calcular o fatorial:</p>
+    <input type="number" id="numeroInput">
+    <button onclick="calcularFatorial()">Calcular Fatorial</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularFatorial() {
+            const numero = parseInt(document.getElementById('numeroInput').value);
+            let fatorial = 1;
+
+            if (numero < 0) {
+                document.getElementById('resultado').textContent = 'O fatorial não está definido para números negativos.';
+                return;
+            }
+
+            for (let i = 1; i <= numero; i++) {
+                fatorial *= i;
+            }
+
+            document.getElementById('resultado').textContent = `O fatorial de ${numero} é: ${fatorial}`;
+        }
+    </script>
+</body>
+
+</html>
+
+
+Exercicio 8
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de Opções</title>
+</head>
+
+<body>
+    <h1>Menu de Opções</h1>
+    <p>Escolha uma opção:</p>
+    <select id="opcoes">
+        <option value="1">1. Opção 1</option>
+        <option value="2">2. Opção 2</option>
+        <option value="3">3. Opção 3</option>
+    </select>
+    <button onclick="exibirMensagem()">Escolher Opção</button>
+    <p id="resultado"></p>
+
+    <script>
+        function exibirMensagem() {
+            const opcaoSelecionada = document.getElementById('opcoes').value;
+            const resultadoElement = document.getElementById('resultado');
+
+            switch (opcaoSelecionada) {
+                case '1':
+                    resultadoElement.textContent = 'Opção 1 escolhida';
+                    break;
+                case '2':
+                    resultadoElement.textContent = 'Opção 2 escolhida';
+                    break;
+                case '3':
+                    resultadoElement.textContent = 'Opção 3 escolhida';
+                    break;
+                default:
+                    resultadoElement.textContent = 'Opção inválida';
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+Exercicio 9
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Número em um Vetor</title>
+</head>
+
+<body>
+    <h1>Maior Número em um Vetor</h1>
+    <p>Digite os números separados por vírgula:</p>
+    <input type="text" id="numerosInput">
+    <button onclick="encontrarMaiorNumero()">Encontrar Maior Número</button>
+    <p id="resultado"></p>
+
+    <script>
+        function encontrarMaiorNumero() {
+            const numerosInput = document.getElementById('numerosInput').value;
+            const numeros = numerosInput.split(',').map(Number);
+
+            if (numeros.length === 0) {
+                document.getElementById('resultado').textContent = 'Digite pelo menos um número.';
+                return;
+            }
+
+            const maiorNumero = Math.max(...numeros);
+
+            document.getElementById('resultado').textContent = `O maior número é: ${maiorNumero}`;
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+Exercicio 10
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média dos Elementos de uma Matriz</title>
+</head>
+
+<body>
+    <h1>Média dos Elementos de uma Matriz</h1>
+    <p>Digite os elementos da matriz separados por vírgula e ponto e vírgula para as linhas:</p>
+    <textarea id="matrizInput" rows="4" cols="50"></textarea>
+    <button onclick="calcularMediaMatriz()">Calcular Média</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMediaMatriz() {
+            const matrizInput = document.getElementById('matrizInput').value;
+            const linhas = matrizInput.split(';');
+
+            const matriz = [];
+            let totalElementos = 0;
+            let soma = 0;
+
+            for (let i = 0; i < linhas.length; i++) {
+                const elementos = linhas[i].split(',').map(Number);
+                matriz.push(elementos);
+                totalElementos += elementos.length;
+                soma += elementos.reduce((acc, num) => acc + num, 0);
+            }
+
+            const media = soma / totalElementos;
+
+            document.getElementById('resultado').textContent = `A média dos elementos da matriz é: ${media.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>
